@@ -73,20 +73,20 @@ echo "===== Completed packages installation =====";
 # Install geth
 ##############
 echo "===== Starting geth installation =====";
-wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.6.0-facc47cb.tar.gz || unsuccessful_exit "geth download failed";
-wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.6.0-facc47cb.tar.gz.asc || unsuccessful_exit "geth signature download failed";
+wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.6.7-ab5646c5.tar.gz || unsuccessful_exit "geth download failed";
+#wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.6.0-facc47cb.tar.gz.asc || unsuccessful_exit "geth signature download failed";
 
 # Import geth buildserver keys
-gpg --recv-keys --keyserver hkp://keyserver.ubuntu.com F9585DE6 C2FF8BBF 9BA28146 7B9E2481 D2A67EAC || unsuccessful_exit "import geth buildserver keys failed";
+#gpg --recv-keys --keyserver hkp://keyserver.ubuntu.com F9585DE6 C2FF8BBF 9BA28146 7B9E2481 D2A67EAC || unsuccessful_exit "import geth buildserver keys failed";
 
 # Validate signature
-gpg --verify geth-alltools-linux-amd64-1.6.0-facc47cb.tar.gz.asc || unsuccessful_exit "validate geth download failed";
+#gpg --verify geth-alltools-linux-amd64-1.6.0-facc47cb.tar.gz.asc || unsuccessful_exit "validate geth download failed";
 
 # Unpack archive
-tar xzf geth-alltools-linux-amd64-1.6.0-facc47cb.tar.gz || unsuccessful_exit "geth download unpack failed";
+tar xzf geth-alltools-linux-amd64-1.6.7-ab5646c5.tar.gz || unsuccessful_exit "geth download unpack failed";
 
 # /usr/bin is in $PATH by default, we'll put our binaries there
-sudo cp geth-alltools-linux-amd64-1.6.0-facc47cb/* /usr/bin/ || unsuccessful_exit "copy of geth to /usr/bin failed";
+sudo cp geth-alltools-linux-amd64-1.6.7-ab5646c5/* /usr/bin/ || unsuccessful_exit "copy of geth to /usr/bin failed";
 echo "===== Completed geth installation =====";
 
 #############
